@@ -1,0 +1,131 @@
+.aside {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--panel, #0a1628);
+  border-right: 1px solid var(--border, #14233b);
+  color: var(--text, #e8eef8);
+  font-family: "Space Mono", monospace;
+}
+
+.aside-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px;
+  position: relative;
+}
+.aside-logo {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: var(--orange, #f97f1f);
+}
+.aside-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.aside-brand-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+}
+.aside-brand-sub {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--muted, #8da0bc);
+}
+.aside-version {
+  position: absolute;
+  top: 16px;
+  right: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #16294a;
+  border: 1px solid #25406b;
+  font-size: 9px;
+  color: var(--muted, #9fb0c8);
+}
+
+.aside-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.aside-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  font-size: 12px;
+  color: var(--muted, #9fb0c8);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: background 0.15s, color 0.15s;
+}
+.aside-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+}
+.aside-link--active {
+  color: #fff;
+  background: #14294a;
+  border-left-color: var(--orange, #f97f1f);
+}
+.aside-link--active svg {
+  color: var(--orange, #f97f1f);
+}
+
+.aside-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #0f2038;
+  border: 1px solid var(--border, #1b2d4a);
+}
+.aside-user-avatar {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--orange, #f97f1f);
+}
+.aside-user-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: 10px;
+  color: var(--muted, #8da0bc);
+}
+.aside-user-info strong {
+  color: #fff;
+  font-size: 11px;
+}
+.aside-logout {
+  background: none;
+  border: none;
+  color: var(--muted, #8da0bc);
+  cursor: pointer;
+}
+.aside-logout:hover {
+  color: #fff;
+}
+
+@media (max-width: 800px) {
+  .aside {
+    display: none;
+  }
+}
