@@ -1,0 +1,670 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --bg: #050d1a;
+  --panel: #0d1a2e;
+  --panel-2: #112240;
+  --border: #1b2d4a;
+  --orange: #f97f1f;
+  --blue: #6f8fc9;
+  --text: #e8eef8;
+  --muted: #8da0bc;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+.hist {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Space Mono", monospace;
+}
+.hist-main {
+  flex: 1;
+  width: 100%;
+}
+.hist-content {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px 28px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* shared */
+.hist-label {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.hist-label--orange,
+.hist-orange {
+  color: var(--orange);
+}
+.hist-h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 8px 0;
+  color: #fff;
+}
+.hist-sub {
+  margin: 4px 0 0;
+  font-size: 10px;
+  color: var(--muted);
+}
+.hist-sub--strong {
+  color: #fff;
+  font-weight: 700;
+}
+.hist-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 18px;
+}
+.hist-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #15294a;
+  border: 1px solid #25406b;
+  font-size: 9px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.hist-badge--acc {
+  color: #9fc0ff;
+}
+.hist-badge--dim {
+  background: transparent;
+  border-color: var(--border);
+}
+.hist-btn {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #0f2038;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.hist-btn:hover {
+  border-color: var(--orange);
+}
+.hist-btn--orange {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #050d1a;
+  font-weight: 700;
+}
+.hist-btn--select {
+  padding: 8px 14px;
+  border-radius: 4px;
+}
+.hist-btn--dark {
+  background: #08111f;
+}
+.hist-tag-orange {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #050d1a;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.hist-tag-dim {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #15294a;
+  color: var(--muted);
+  font-size: 8px;
+}
+.hist-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* top */
+.hist-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hist-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.05;
+  max-width: 320px;
+  margin: 6px 0 0;
+  color: #fff;
+}
+.hist-tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* search */
+.hist-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  flex-wrap: wrap;
+}
+.hist-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 220px;
+  max-width: 460px;
+  padding: 6px 12px;
+  background: #08111f;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+}
+.hist-search input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+}
+.hist-mic {
+  color: var(--orange);
+}
+.hist-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.hist-chip {
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #0f2038;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+.hist-chip:hover {
+  color: #fff;
+}
+.hist-chip--active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #050d1a;
+  font-weight: 700;
+}
+
+/* columns */
+.hist-cols {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.3fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* left */
+.hist-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hist-left-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hist-left-head h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+.hist-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+.hist-item {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.hist-item:hover {
+  border-color: #35557f;
+}
+.hist-item--active {
+  border-color: var(--orange);
+  background: #14243c;
+  box-shadow: inset 3px 0 0 var(--orange);
+}
+.hist-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 9px;
+  color: var(--muted);
+}
+.hist-dur {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #08111f;
+  border: 1px solid var(--border);
+  color: #fff;
+}
+.hist-item h3 {
+  margin: 0 0 6px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: #fff;
+}
+.hist-item p {
+  margin: 0 0 10px;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.hist-item-foot {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.hist-empty {
+  color: var(--muted);
+  font-size: 12px;
+}
+.hist-storage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.hist-storage strong {
+  display: block;
+  font-size: 11px;
+  color: #fff;
+}
+.hist-storage span {
+  font-size: 9px;
+  color: var(--muted);
+}
+
+/* right: player */
+.hist-right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.hist-player-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+}
+.hist-acc-box {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  text-align: right;
+  background: #08111f;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.hist-acc-box b {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 26px;
+  color: var(--orange);
+}
+.hist-acc-box span {
+  font-size: 8px;
+  color: var(--muted);
+}
+.hist-wave {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 90px;
+  margin: 16px 0;
+  padding: 8px 10px;
+  background: #08111f;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.hist-wave-bar {
+  flex: 1;
+  border-radius: 2px;
+  background: #2d4c80;
+}
+.hist-wave-bar--done {
+  background: var(--orange);
+}
+.hist-playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--orange);
+}
+.hist-playhead em {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: #1a2d4d;
+  font-style: normal;
+  font-size: 8px;
+  color: var(--muted);
+}
+.hist-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hist-play {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #050d1a;
+  font-size: 13px;
+  cursor: pointer;
+}
+.hist-round {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #15294a;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+}
+.hist-time {
+  margin-left: 6px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.hist-time b {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  color: var(--orange);
+}
+.hist-speed-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+.hist-speeds {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  background: #08111f;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.hist-speed {
+  padding: 3px 8px;
+  border: none;
+  border-radius: 3px;
+  background: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 9px;
+  cursor: pointer;
+}
+.hist-speed--active {
+  background: var(--orange);
+  color: #050d1a;
+  font-weight: 700;
+}
+.hist-volume {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #08111f;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--muted);
+}
+.hist-volume span {
+  display: block;
+  width: 60px;
+  height: 4px;
+  border-radius: 999px;
+  background: #1a2d4d;
+}
+.hist-volume i {
+  display: block;
+  width: 70%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--orange);
+}
+
+/* transcript */
+.hist-transcript-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.hist-transcript-head .hist-h2 {
+  font-size: 18px;
+  margin: 0;
+  max-width: 190px;
+}
+.hist-bars-icon {
+  color: var(--orange);
+}
+.hist-transcript-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hist-sync {
+  padding: 3px 8px;
+  border: 1px solid #5a3a1c;
+  border-radius: 4px;
+  background: rgba(249, 127, 31, 0.08);
+  color: var(--orange);
+  font-size: 9px;
+}
+.hist-verbatim,
+.hist-translation {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #08111f;
+  margin-bottom: 12px;
+}
+.hist-verbatim-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 8px;
+  color: var(--muted);
+}
+.hist-verbatim-head span:first-child {
+  letter-spacing: 0.04em;
+}
+.hist-verbatim p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #fff;
+}
+.hist-verbatim mark {
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 4px 0;
+  border-radius: 6px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 18px rgba(249, 127, 31, 0.35);
+}
+.hist-translation p {
+  margin: 0;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* segments */
+.hist-seg-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0 8px;
+  font-size: 8px;
+  color: var(--muted);
+}
+.hist-segments {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #08111f;
+  overflow: hidden;
+}
+.hist-seg {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  color: var(--text);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.hist-seg:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.hist-seg--active {
+  background: #14294a;
+  border-left-color: var(--orange);
+}
+.hist-seg-range {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #15294a;
+  border: 1px solid #25406b;
+  font-size: 9px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.hist-seg--active .hist-seg-range {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #050d1a;
+  font-weight: 700;
+}
+.hist-seg-info {
+  flex: 1;
+  min-width: 0;
+}
+.hist-seg-info strong {
+  display: block;
+  font-size: 11px;
+  color: #fff;
+}
+.hist-seg-info em {
+  font-style: normal;
+  font-size: 9px;
+  color: var(--muted);
+}
+.hist-seg-acc {
+  font-size: 9px;
+  color: var(--muted);
+}
+.hist-seg-play {
+  font-size: 10px;
+  color: var(--muted);
+}
+.hist-seg--active .hist-seg-play {
+  color: var(--orange);
+}
+.hist-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+@media (max-width: 1000px) {
+  .hist-cols {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .hist-content {
+    padding: 12px 14px 40px;
+  }
+  .hist-player-top {
+    flex-direction: column;
+  }
+  .hist-title {
+    font-size: 30px;
+  }
+}
